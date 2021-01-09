@@ -1,3 +1,69 @@
-body {
+* {
   margin: 0;
-  paddng: 0; }
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Montserrat', sans-serif; }
+
+a {
+  text-decoration: none; }
+
+ul {
+  list-style-type: none; }
+
+.navbar {
+  display: flex;
+  background: #f3e9f1;
+  height: 5em; }
+
+.navbar-img {
+  height: 100%;
+  width: 10em;
+  margin-left: 25%; }
+
+.nav-links {
+  margin-left: 25%;
+  display: flex;
+  align-items: center; }
+  @media screen and (min-width: 768px) {
+    .nav-links {
+      margin-left: auto; } }
+  .nav-links li a,
+  .nav-links li a:visited {
+    font-weight: bold;
+    padding-right: 1em; }
+    @media screen and (min-width: 768px) {
+      .nav-links li a,
+      .nav-links li a:visited {
+        font-size: 2em; } }
+
+.mainContainer {
+  padding: 0 2em;
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1em; }
+  @media screen and (min-width: 768px) {
+    .mainContainer {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 1em; } }
+  @media screen and (min-width: 1024px) {
+    .mainContainer {
+      grid-template-columns: repeat(5, 1fr); } }
+
+.card {
+  border: 2px solid black;
+  border-radius: 25px;
+  width: min-content;
+  padding: 2em; }
+  .card__img {
+    border-radius: 5%;
+    height: 200px;
+    width: 200px; }
+  .card__titre {
+    margin-top: 1em; }
+  .card__price {
+    margin-top: .5em; }
+  .card__desc {
+    margin-top: .5em; }

@@ -1,0 +1,35 @@
+.mainContainer {
+    padding: 0 2em;
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 1em;
+    @include mq(768px) {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1em;
+    }
+    @include mq(1024px) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.card {
+    border: 2px solid black;
+    border-radius: 25px;
+    width: min-content;
+    padding: 2em;
+    &__img {
+        border-radius: 5%;
+        height: 200px;
+        width: 200px;
+    }
+    &__titre {
+        margin-top: 1em;
+    }
+    &__price {
+        margin-top: .5em;
+    }
+    &__desc {
+        margin-top: .5em;
+    }
+}
