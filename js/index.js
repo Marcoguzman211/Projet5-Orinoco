@@ -25,7 +25,8 @@ const draw = data => {
             pCardImage = document.createElement('img'),
             pCardTitle = document.createElement('h2'),
             pCardPrice = document.createElement('p'),
-            pCardDescription = document.createElement('p')
+            pCardDescription = document.createElement('p'),
+            pCardButton = document.createElement('a')
 
         //Appel des produits de l'API
         pCardImage.setAttribute('src', product.imageUrl)
@@ -33,6 +34,7 @@ const draw = data => {
         product.price = product.price / 1000
         pCardPrice.textContent = product.price.toLocaleString("fr", { style: "currency", currency: "EUR" })
         pCardDescription.textContent = product.description
+        pCardButton.textContent = 'Voir le produit'
 
 
         //Ajout des classes Bootstrap aux éléments 
@@ -41,6 +43,7 @@ const draw = data => {
         pCardTitle.setAttribute('class', 'card__titre')
         pCardPrice.setAttribute('class', 'card__price')
         pCardDescription.setAttribute('class', 'card__desc')
+        pCardButton.setAttribute('class', 'card__button')
 
 
         //Met les éléments de la carte dans le body
@@ -49,6 +52,7 @@ const draw = data => {
         pCardContainer.appendChild(pCardTitle)
         pCardContainer.appendChild(pCardPrice)
         pCardContainer.appendChild(pCardDescription)
+        pCardContainer.appendChild(pCardButton)
 
         //Montrer tous les produits à l'écran
         container.appendChild(pCardContainer)
