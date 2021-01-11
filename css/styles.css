@@ -137,3 +137,7 @@ ul {
     border-radius: 7px;
     background: #282725;
     color: #fff; }
+
+.productContainer {
+  border: 2px solid green;
+  height: 100vh; }

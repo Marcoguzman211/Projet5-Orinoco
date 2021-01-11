@@ -31,7 +31,7 @@ const draw = data => {
         //Appel des produits de l'API
         pCardImage.setAttribute('src', product.imageUrl)
         pCardTitle.textContent = product.name
-        product.price = product.price / 1000
+        product.price = product.price / 100
         pCardPrice.textContent = product.price.toLocaleString("fr", { style: "currency", currency: "EUR" })
         pCardDescription.textContent = product.description
         pCardButton.textContent = 'Voir le produit'
@@ -44,6 +44,7 @@ const draw = data => {
         pCardPrice.setAttribute('class', 'card__price')
         pCardDescription.setAttribute('class', 'card__desc')
         pCardButton.setAttribute('class', 'card__button')
+        pCardButton.setAttribute('href', 'produit.html?id=' + product._id)
 
 
         //Met les éléments de la carte dans le body
