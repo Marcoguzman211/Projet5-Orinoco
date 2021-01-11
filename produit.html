@@ -25,13 +25,19 @@
         </nav>
     </header>
     <main>
-        <div>
+        <div class="productMainContainer">
             <div class="productContainer">
-                <img src="" alt="">
-                <h2>Nom du produit</h2>
-                <p>Prix</p>
-                <p>Description</p>
-                <button>Ajouter au panier</button>
+                <img class="produitImg" src="https://picsum.photos/400/200" alt="">
+                <h2 class="produitName">Nom du produit</h2>
+                <p class="produitPrice">Prix</p>
+                <p class="produitDesc">Description</p>
+                <label for="choix-vernis">Choix du vernis</label>
+                <select name="choix-vernis" id="">
+                    <option value="gris">gris</option>
+                    <option value="rouge">rouge</option>
+                    <option value="ver">orange</option>
+                </select>
+                <button class="addPanier">Ajouter au panier</button>
             </div>
         </div>
     </main>
