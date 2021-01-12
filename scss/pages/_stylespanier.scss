@@ -1,0 +1,57 @@
+.panier {
+    display: flex;
+    height: 84vh;
+    position: relative;
+    &__contenu {
+        //surement à effacer en bas
+        width: 50%;
+        border: 2px solid black;
+    }
+    &__formulaire {
+        border: 2px solid black;
+        width: 50%;
+    }
+}
+
+.formulaireContainer {
+    display: grid;
+    padding: 3em;
+}
+
+//Enfants de formulaireContainer
+.civiliteContainer {
+    border: 2px solid green;
+    padding: 3em;
+    display: grid;
+    row-gap: 1em;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    &-header {
+        grid-column: 1/2;
+        border: 2px solid black;
+    }
+    &-nom {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    &-premon {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    &-mail {
+        grid-column: 1/2;
+        grid-row: 3/4;
+    }
+}
+
+.adresseContainer {
+    padding: 3em;
+    margin-top: 3em;
+}
+
+.btn-form {
+    margin-top: 2em;
+    padding: 2em;
+}
+
+//Fin des enfants de formulaireContainer

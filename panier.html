@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier | Orinoco</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <a href="/index.html">
+            <img class="navbar-img" src="img/orinoco-logo.png" alt="Logo d'Orinoco">
+        </a>
+        <nav class="nav-links">
+            <ul>
+                <li>
+                    <a href="/panier.html"><i class="fas fa-shopping-cart"></i>Panier</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="panier">
+        <div class="panier__contenu">
+            Ici le contenu du localStorage
+        </div>
+        <div class="panier__formulaire">
+            <form method="post" id="formulaire" class="formulaireContainer">
+                <!--Identité-->
+                <fieldset class="civiliteContainer">
+                    <legend class="civiliteContainer-header">Civilité</legend>
+                    <div class="civiliteContainer-nom">
+                        <label for="Nomform" class="labelform">Nom :</label>
+                        <input type="text" id="Nomform" name="Nomform" placeholder="Nom" required>
+                    </div>
+                    <div class="civiliteContainer-prenom">
+                        <label for="Prénom" class="labelform">Prénom :</label>
+                        <input type="text" name="Prénom" id="Prénom" placeholder="Prénom" required>
+                    </div>
+                    <div class="civiliteContainer-mail">
+                        <label for="Email" class="labelform">Adresse mail :</label>
+                        <input type="email" name="Email" id="Email" placeholder="Email" required>
+                    </div>
+                </fieldset>
+                <!--Adresse de facturation-->
+                <fieldset class="adresseContainer">
+                    <legend>Adresse de facturation</legend>
+                    <div class="">
+                        <label for="Adresse" class="labelform">Adresse :</label>
+                        <input type="text" name="Adresse" id="Adresse" placeholder="Adresse" required>
+                    </div>
+                    <div class="">
+                        <label for="Ville" class="labelform">Ville :</label>
+                        <input type="text" name="Ville" id="Ville" placeholder="Ville" required>
+                    </div>
+                    <div class="">
+                        <label for="Codepostal" class="labelform">Code postal :</label>
+                        <input type="number" name="Codepostal" id="Codepostal" placeholder="Code postal" required>
+                    </div>
+                </fieldset>
+                <button type="submit" class="btn-form" id="formbutton">Envoyer</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <a class="footer__item" href="#">&copy; Orinoco</a>
+        <a class="footer__item" href="#">Info cookies</a>
+        <a class="footer__item" href="#">Mentions légales</a>
+        <a class="footer__item" href="mailto:contact@orinococameras.com">Contact</a>
+    </footer>
+    <script src="js/panier.js"></script>
+</body>
+
+</html>
