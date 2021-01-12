@@ -14,7 +14,7 @@ xhr.onreadystatechange = function() {
     }
 }
 
-xhr.open('GET', 'http://localhost:3000/api/furniture', true);
+xhr.open('GET', 'http://localhost:3000/api/cameras', true);
 //Appel de la requête
 xhr.send();
 
