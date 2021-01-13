@@ -6,3 +6,9 @@ if (localStorage.getItem("monPanier")) {
     let init = [];
     localStorage.setItem("monPanier", (JSON.stringify(init)));
 }
+
+//Fonction pour vider le panier
+function ClearAll() {
+    localStorage.clear();
+    doShowAll();
+}

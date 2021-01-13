@@ -5,53 +5,53 @@
     &__contenu {
         //surement à effacer en bas
         width: 50%;
-        border: 2px solid black;
+        //border: 2px solid black;
     }
     &__formulaire {
-        border: 2px solid black;
+        //border: 2px solid black;
         width: 50%;
+        position: relative;
     }
 }
 
 .formulaireContainer {
+    //border: 2px solid red;
     display: grid;
+    grid-template-rows: 4em 1fr;
     padding: 3em;
-}
-
-//Enfants de formulaireContainer
-.civiliteContainer {
-    border: 2px solid green;
-    padding: 3em;
-    display: grid;
-    row-gap: 1em;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    &-header {
-        grid-column: 1/2;
-        border: 2px solid black;
+    height: 100%;
+    //background: #aaa3a9;
+    & h2 {
+        //border: 2px solid brown;
+        align-self: center;
     }
-    &-nom {
-        grid-column: 1/2;
-        grid-row: 1/2;
-    }
-    &-premon {
-        grid-column: 1/2;
-        grid-row: 2/3;
-    }
-    &-mail {
-        grid-column: 1/2;
-        grid-row: 3/4;
+    & form {
+        //border: 2px solid brown;
+        padding: 2em;
+        display: grid;
+        row-gap: 1em;
     }
 }
 
-.adresseContainer {
-    padding: 3em;
-    margin-top: 3em;
+.form-block {
+    display: flex;
 }
 
-.btn-form {
-    margin-top: 2em;
-    padding: 2em;
+.form-label {
+    width: 5em;
+    font-size: 2em;
 }
 
-//Fin des enfants de formulaireContainer
+.form-input {
+    height: 2.6em;
+    margin-left: .5em;
+    width: 20em;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+
+button[type=submit] {
+    font-size: 1.5em;
+    width: 15em;
+    justify-self: center;
+}
