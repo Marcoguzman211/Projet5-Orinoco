@@ -5,28 +5,31 @@
     &__contenu {
         //surement à effacer en bas
         width: 50%;
-        //border: 2px solid black;
+        position: relative;
+        &-affichage {
+            border: 2px solid green;
+            padding: 5em;
+            position: absolute;
+            top: 7%;
+            left: 40%;
+        }
     }
     &__formulaire {
-        //border: 2px solid black;
         width: 50%;
         position: relative;
     }
 }
 
 .formulaireContainer {
-    //border: 2px solid red;
     display: grid;
     grid-template-rows: 4em 1fr;
     padding: 3em;
     height: 100%;
     //background: #aaa3a9;
     & h2 {
-        //border: 2px solid brown;
         align-self: center;
     }
     & form {
-        //border: 2px solid brown;
         padding: 2em;
         display: grid;
         row-gap: 1em;

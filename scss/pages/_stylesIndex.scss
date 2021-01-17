@@ -28,12 +28,14 @@
 }
 
 .mainContainer {
-    padding: 0 2em 2em 2em;
+    padding: 0 2em 5em 2em;
     margin-top: 1em;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 430px);
+    grid-template-rows: repeat(1, 1fr);
+    justify-content: space-between;
     row-gap: 1em;
-    column-gap: 1em;
+    column-gap: 3em;
 }
 
 .card {
@@ -42,13 +44,12 @@
     border-radius: 25px;
     padding: 2em;
     background: #fff;
+    width: 100%;
     &__img {
+        border: 1px solid gray;
         border-radius: 5%;
-        height: 50%;
+        height: 300px;
         width: 100%;
-    }
-    &__img:last-of-type {
-        height: 400px;
     }
     &__titre {
         margin-top: 1em;

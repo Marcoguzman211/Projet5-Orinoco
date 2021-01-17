@@ -1,3 +1,17 @@
+//Verification du localStorage
+const localStorageContent = localStorage.getItem('names')
+const localStoragePrice = localStorage.getItem('totalPrice')
+let names
+let namesCounted
+let prixTotal
+if (localStorage.length == 0) {
+    names = []
+    prixTotal = 0
+} else {
+    names = JSON.parse(localStorageContent)
+    prixTotal = JSON.parse(localStoragePrice)
+}
+
 //URL de l'API
 const url = "http://localhost:3000/api/cameras"
 let responseAPI
@@ -22,10 +36,10 @@ if (queryString != "") {
     const id = urlParams.get("id")
     if (id != "") {
         console.log(id)
-        fetch(url + '/' + id).then(function(response) {
-            response.json().then(function(data) {
+        fetch(url + '/' + id).then(response => {
+            response.json().then(data => {
                 responseAPI = data
-                console.log(responseAPI)
+                    //console.log(responseAPI)
 
                 //On remplit le html avec les réponses de l'API
                 const produitImg = document.getElementById("produitImg"),
@@ -40,17 +54,41 @@ if (queryString != "") {
                 produitPrice.textContent = responseAPI.price.toLocaleString("fr", { style: "currency", currency: "EUR" })
                 produitDesc.textContent = responseAPI.description
 
-                //Ajout des options des lentilles
+
+                //Ajout des options des objectifs
                 let lentilles = document.getElementById('lentilles')
                 responseAPI.lenses.forEach(lentille => {
-                    let option = document.createElement("option");
+                    let option = document.createElement("option")
                     option.textContent = lentille;
                     lentilles.appendChild(option);
+                })
 
+                //Test du 15 janvier 2021
+                const boutonPanier = document.getElementById('addPanier')
+                boutonPanier.addEventListener('click', () => {
+                    names.push(produitName.textContent)
+                    prixTotal += responseAPI.price
 
-                });
+                    //Test du 17 janvier 2021
+                    let count = 0;
+                    for (var i = 0; i < names.length; i++) {
+                        if (names[i] == produitName.textContent) {
+                            count++
+                        }
+                    }
+                    console.log(names)
+                    console.log(count)
+
+                    //Fin du test du 17 janvier 2021
+
+                    localStorage.setItem('names', JSON.stringify(names))
+                    localStorage.setItem('totalPrice', JSON.stringify(prixTotal))
+                    alert('Le produit a bien été ajouté!')
+
+                })
+
+                //Fin du test du 15 janvier 2021
             })
-
         })
     } else {
         window.location.href = "index.html"
@@ -58,6 +96,9 @@ if (queryString != "") {
 } else {
     window.location.href = "index.html"
 }
+
+
+
 
 /**
  * localStorage.clear()
