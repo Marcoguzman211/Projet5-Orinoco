@@ -1,16 +1,8 @@
 //Verification du localStorage
-const localStorageContent = localStorage.getItem('names')
+const localStorageContent = localStorage.getItem('products')
 const localStoragePrice = localStorage.getItem('totalPrice')
-let names
-let namesCounted
-let prixTotal
-if (localStorage.length == 0) {
-    names = []
-    prixTotal = 0
-} else {
-    names = JSON.parse(localStorageContent)
-    prixTotal = JSON.parse(localStoragePrice)
-}
+let products = JSON.parse(localStorageContent) || []
+let prixTotal = JSON.parse(localStoragePrice) || 0
 
 //URL de l'API
 const url = "http://localhost:3000/api/cameras"
@@ -63,31 +55,19 @@ if (queryString != "") {
                     lentilles.appendChild(option);
                 })
 
-                //Test du 15 janvier 2021
+                //Bouton ajouter au panier
                 const boutonPanier = document.getElementById('addPanier')
                 boutonPanier.addEventListener('click', () => {
-                    names.push(produitName.textContent)
                     prixTotal += responseAPI.price
+                    products.push(id)
 
-                    //Test du 17 janvier 2021
-                    let count = 0;
-                    for (var i = 0; i < names.length; i++) {
-                        if (names[i] == produitName.textContent) {
-                            count++
-                        }
-                    }
-                    console.log(names)
-                    console.log(count)
-
-                    //Fin du test du 17 janvier 2021
-
-                    localStorage.setItem('names', JSON.stringify(names))
+                    localStorage.setItem('products', JSON.stringify(products))
                     localStorage.setItem('totalPrice', JSON.stringify(prixTotal))
                     alert('Le produit a bien été ajouté!')
+                    console.log(products)
 
                 })
 
-                //Fin du test du 15 janvier 2021
             })
         })
     } else {
@@ -96,24 +76,3 @@ if (queryString != "") {
 } else {
     window.location.href = "index.html"
 }
-
-
-
-
-/**
- * localStorage.clear()
- * localStorage.panier = "un truc"
- * console.log(localStorage.panier) 
- * 
- * Ajouter un article au panier
- * function ajouterAuPanier(){
- * const bouton = document.getElementById("Boutonpanier");
-    bouton.addEventListener("click", async function(){
-        panier.push(mesVariables);
-        localStorage.setItem("monPanier", JSON.stringify(panier));
-        alert("L'article a bien été ajouté à votre panier.")
-        location.reload();
-    });
-};
-ajouterAuPanier();
- */

@@ -5,14 +5,8 @@
     &__contenu {
         //surement à effacer en bas
         width: 50%;
-        position: relative;
-        &-affichage {
-            border: 2px solid green;
-            padding: 5em;
-            position: absolute;
-            top: 7%;
-            left: 40%;
-        }
+        display: flex;
+        flex-direction: column;
     }
     &__formulaire {
         width: 50%;
@@ -20,6 +14,26 @@
     }
 }
 
+//Styles de chaque carte dans le panier
+.panierProduitCont {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.panierCard {
+    border: 2px solid #000;
+    display: flex;
+    column-gap: 5em;
+    &-img {
+        height: 150px;
+        width: 150px;
+    }
+}
+
+//Styles de chaque 
 .formulaireContainer {
     display: grid;
     grid-template-rows: 4em 1fr;

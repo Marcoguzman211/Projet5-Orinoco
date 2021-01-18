@@ -26,11 +26,15 @@
     </header>
     <main class="panier">
         <div id='panier__contenu' class="panier__contenu">
-            <div id='panier__contenu-affichage' class='panier__contenu-affichage'>
-                <h2>Votre Panier</h2>
-
-                <button id='clearStorage'>Vider le panier</button>
+            <h2>Votre panier</h2>
+            <div id="panierProduitCont" class="panierProduitCont">
+                <!-- <div class="panierCard">
+                    <img class="panierCard-img" src="https://picsum.photos/150/150" alt="">
+                    <h3 class="panierCard-titre">Nom du produit</h3>
+                    <p class="panierCard-price">Prix du produit</p>
+                </div> -->
             </div>
+            <button id='clearStorage'>Vider le panier</button>
         </div>
         <div class="panier__formulaire">
             <div class="formulaireContainer">
@@ -38,7 +42,7 @@
                 <form action="post" id="formulaire">
                     <div class="form-block">
                         <label for="lastname" class="form-label">Nom :</label>
-                        <input class="form-input" type="text" id="name" name="lastname" required placeholder="Votre nom">
+                        <input class="form-input" type="text" id="lastName" name="lastname" required placeholder="Votre nom">
                     </div>
                     <div class="form-block">
                         <label for="name" class="form-label">Prénom :</label>
@@ -56,7 +60,7 @@
                         <label for="name" class="form-label">Ville :</label>
                         <input class="form-input" type="text" id="ville" name="name" required placeholder="Ville">
                     </div>
-                    <button type="submit">Valider mon panier</button>
+                    <button id="commander" type="submit">Valider mon panier</button>
                 </form>
             </div>
         </div>

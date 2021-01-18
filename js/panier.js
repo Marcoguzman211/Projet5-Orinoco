@@ -1,48 +1,66 @@
-/*Création du panier utilisateur s'il est nécessaire
-if (localStorage.getItem("monPanier")) {
-    console.log("Panier créé");
-} else {
-    console.log("Création du panier");
-    let init = [];
-    localStorage.setItem("monPanier", (JSON.stringify(init)));
-}*/
-
 //Verification du localStorage
-const localStorageContent = localStorage.getItem('names')
+const localStorageContent = localStorage.getItem('products')
 const localStoragePrice = localStorage.getItem('totalPrice')
-let names
-let prixTotal
-if (localStorage.length == 0) {
-    names = []
-    prixTotal = 0
-} else {
-    names = JSON.parse(localStorageContent)
-    prixTotal = JSON.parse(localStoragePrice)
-}
+let products = JSON.parse(localStorageContent) || []
+let prixTotal = JSON.parse(localStoragePrice) || 0
+
+
+//On vide le panier avec un bouton
 const videPanier = document.getElementById('clearStorage')
 videPanier.addEventListener('click', () => {
         ClearAll()
-        location.reload()
     })
     //Fonction pour vider le panier
 function ClearAll() {
     localStorage.clear();
+    location.reload()
 }
 
-//Affichage Panier essai
-const affichagePanier = document.getElementById('panier__contenu-affichage'),
-    elementsDansLocalS = document.createElement('p')
-let textePanier
+//URL de l'API
+const url = "http://localhost:3000/api/cameras"
+let responseAPI
 
-if (localStorage.length > 0) {
-    textePanier = JSON.stringify(localStorage.names)
-    elementsDansLocalS.textContent = textePanier
-    affichagePanier.appendChild(elementsDansLocalS)
-} else {
-    elementsDansLocalS.textContent = 'Votre panier est vide.'
+//Affichage Panier 
+const affichagePanier = () => {
+    products.forEach(produit => {
+        fetch(url + '/' + produit).then(response => {
+            response.json().then(data => {
+                responseAPI = data
+                const container = document.getElementById('panierProduitCont'),
+                    panierCard = document.createElement('div'),
+                    img = document.createElement('img'),
+                    titre = document.createElement('h3'),
+                    price = document.createElement('p')
+
+                //Ajout des classes
+                panierCard.setAttribute('class', 'panierCard')
+                img.setAttribute('class', 'panierCard-img')
+                titre.setAttribute('class', 'panierCard-titre')
+                price.setAttribute('class', 'panierCard-price')
+
+                //Remplissage des cartes
+                img.setAttribute('src', responseAPI.imageUrl)
+                titre.textContent = responseAPI.name
+                responseAPI.price = responseAPI.price / 100
+                price.textContent = responseAPI.price.toLocaleString("fr", { style: "currency", currency: "EUR" })
+
+                //Append childs
+                panierCard.appendChild(img)
+                panierCard.appendChild(titre)
+                panierCard.appendChild(price)
+
+                container.appendChild(panierCard)
+            })
+        })
+    })
 }
 
+affichagePanier()
+    //Bouton pour la requête ORDER (POST)
+const boutonCommander = document.getElementById('commander')
+boutonCommander.addEventListener('click', () => {
 
-//Trie des noms dans le local Storage
-let nomsLocalS = JSON.parse(localStorageContent)
-console.log(nomsLocalS)
+    let lastName = document.getElementById("lastName").value
+    alert(lastName)
+
+})
