@@ -18,7 +18,13 @@ function ClearAll() {
 
 //URL de l'API
 const url = "http://localhost:3000/api/cameras"
+const urlOrder = "http://localhost:3000/api/cameras/order"
 let responseAPI
+
+//Affichage dinamyque du prix total de la commande
+const prixTotalPanier = document.getElementById('prixTotalPanier')
+prixTotalPanier.textContent = "Le montant total s'élève à " + prixTotal + '€'
+console.log(prixTotalPanier)
 
 //Affichage Panier 
 const affichagePanier = () => {
@@ -56,11 +62,57 @@ const affichagePanier = () => {
 }
 
 affichagePanier()
-    //Bouton pour la requête ORDER (POST)
-const boutonCommander = document.getElementById('commander')
-boutonCommander.addEventListener('click', () => {
 
-    let lastName = document.getElementById("lastName").value
-    alert(lastName)
+//Alerte si le panier est vide 
+const formulairePanier = document.getElementById('formulaire')
+formulairePanier.addEventListener('submit', e => {
+    e.preventDefault()
+        //Avant d'envoyer un formulaire, vérification que le panier n'est pas vide.
+    if (products == []) {
+        alert("Attention, votre panier est vide.");
+    } else {
+        //Recuperer toutes les données saisies par le client
+        let firstName = document.getElementById('firstName').value;
+        let lastName = document.getElementById('lastName').value;
+        let email = document.getElementById('email').value;
+        let address = document.getElementById('address').value;
+        let city = document.getElementById('city').value;
 
+        //Vérification du formulaire
+
+        // on met les variables dans un objet pour la requete POST
+        let contact = {
+            "firstName": firstName,
+            "lastName": lastName,
+            "email": email,
+            "address": address,
+            "city": city,
+        };
+
+        // création de l'objet obligatoire pour la requete à envoyer au serveur
+        let objt = {
+            contact,
+            products
+        };
+
+        let achat = JSON.stringify(objt);
+        console.log(achat)
+
+        //Envoi des données récupérées
+        const optionsFetch = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: "POST",
+            body: JSON.stringify(objt),
+        }
+
+        fetch(urlOrder, optionsFetch).then(response => {
+            response.json().then(data => {
+                responseAPI = data
+                window.location = `./confirmation.html?id=${responseAPI.orderId}&name=${firstName}&prix=${prixTotal}`
+            });
+        });
+        localStorage.clear()
+    }
 })

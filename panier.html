@@ -26,7 +26,7 @@
     </header>
     <main class="panier">
         <div id='panier__contenu' class="panier__contenu">
-            <h2>Votre panier</h2>
+            <h2>Votre panier <span id="prixTotalPanier"></span></h2>
             <div id="panierProduitCont" class="panierProduitCont">
                 <!-- <div class="panierCard">
                     <img class="panierCard-img" src="https://picsum.photos/150/150" alt="">
@@ -41,24 +41,24 @@
                 <h2>Formulaire</h2>
                 <form action="post" id="formulaire">
                     <div class="form-block">
-                        <label for="lastname" class="form-label">Nom :</label>
-                        <input class="form-input" type="text" id="lastName" name="lastname" required placeholder="Votre nom">
+                        <label for="firstName" class="form-label">Prénom :</label>
+                        <input class="form-input" type="text" id="firstName" name="firstName" required placeholder="Votre prénom"><span id='oublisFirstName'></span>
                     </div>
                     <div class="form-block">
-                        <label for="name" class="form-label">Prénom :</label>
-                        <input class="form-input" type="text" id="prenom" name="prenom" required placeholder="Votre prénom">
+                        <label for="lastName" class="form-label">Nom :</label>
+                        <input class="form-input" type="text" id="lastName" name="lastName" required placeholder="Votre nom"><span id='oublisLastName'></span>
                     </div>
                     <div class="form-block">
                         <label for="email" class="form-label">Email :</label>
-                        <input class="form-input" type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}$" placeholder="exemple@exemple.com">
+                        <input class="form-input" type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}$" placeholder="exemple@exemple.com"><span id='oublisEmail'></span>
                     </div>
                     <div class="form-block">
-                        <label for="adresse" class="form-label">Adresse :</label>
-                        <input class="form-input" type="text" id="adresse" name="adresse" required placeholder="Adresse de facturation">
+                        <label for="address" class="form-label">Adresse :</label>
+                        <input class="form-input" type="text" id="address" name="addess" required placeholder="Adresse de facturation"><span id='oublisAddress'></span>
                     </div>
                     <div class="form-block">
-                        <label for="name" class="form-label">Ville :</label>
-                        <input class="form-input" type="text" id="ville" name="name" required placeholder="Ville">
+                        <label for="city" class="form-label">Ville :</label>
+                        <input class="form-input" type="text" id="city" name="city" required placeholder="Ville"><span id='oublisCity'></span>
                     </div>
                     <button id="commander" type="submit">Valider mon panier</button>
                 </form>
