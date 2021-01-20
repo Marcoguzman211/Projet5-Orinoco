@@ -1,9 +1,24 @@
+//Verification du localStorage
+const localStorageContent = localStorage.getItem('products')
+const localStoragePrice = localStorage.getItem('totalPrice')
+let products = JSON.parse(localStorageContent) || []
+let prixTotal = JSON.parse(localStoragePrice) || 0
+let bodyPage = document.getElementsByTagName('p')
+
 let paramsConfirmation = new URLSearchParams(window.location.search);
 
-let nameConfirmation = document.getElementById("Namecommande");
-let prixConfirmation = document.getElementById("Prixcommande");
-let idConfirmation = document.getElementById("Idcommande");
+if (paramsConfirmation.has('id') == false) {
+    document.getElementById('sectionConfirmation').innerHTML = "<p> Votre commande n'est pas validée </p> <br> <p>Vous allez être redigé vers votre panier </p>"
+    setTimeout(() => {
+        window.location.href = "panier.html"
+    }, 3000)
 
-nameConfirmation.textContent = paramsConfirmation.get('name');
-prixConfirmation.textContent = paramsConfirmation.get('prix');
-idConfirmation.textContent = paramsConfirmation.get('id');
+} else {
+    let nameConfirmation = document.getElementById("nameCommande")
+    let prixConfirmation = document.getElementById("prixCommande")
+    let idConfirmation = document.getElementById("idCommande")
+
+    nameConfirmation.textContent = paramsConfirmation.get('name')
+    prixConfirmation.textContent = paramsConfirmation.get('prix')
+    idConfirmation.textContent = paramsConfirmation.get('id')
+}

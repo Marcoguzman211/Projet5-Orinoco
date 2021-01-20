@@ -1,8 +1,14 @@
 //Verification du localStorage
 const localStorageContent = localStorage.getItem('products')
 const localStoragePrice = localStorage.getItem('totalPrice')
+const localStorageQuantity = localStorage.getItem('qte')
 let products = JSON.parse(localStorageContent) || []
 let prixTotal = JSON.parse(localStoragePrice) || 0
+let quantitePanier = JSON.parse(localStorageQuantity) || 0
+
+//Variables pour l'affichage de la quantité dans le panier
+let panierQte = document.getElementById('panierQte')
+panierQte.textContent = quantitePanier
 
 //URL de l'API
 const url = "http://localhost:3000/api/cameras"
@@ -60,12 +66,14 @@ if (queryString != "") {
                 boutonPanier.addEventListener('click', () => {
                     prixTotal += responseAPI.price
                     products.push(id)
+                    quantitePanier++
 
                     localStorage.setItem('products', JSON.stringify(products))
                     localStorage.setItem('totalPrice', JSON.stringify(prixTotal))
+                    localStorage.setItem('qte', JSON.stringify(quantitePanier))
                     alert('Le produit a bien été ajouté!')
                     console.log(products)
-
+                    location.reload()
                 })
 
             })

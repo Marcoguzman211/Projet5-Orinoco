@@ -4,6 +4,10 @@ const localStoragePrice = localStorage.getItem('totalPrice')
 let products = JSON.parse(localStorageContent) || []
 let prixTotal = JSON.parse(localStoragePrice) || 0
 
+//Variables pour l'affichage de la quantité dans le panier
+let panierQte = document.getElementById('panierQte')
+panierQte.textContent = quantitePanier
+
 
 //On vide le panier avec un bouton
 const videPanier = document.getElementById('clearStorage')
@@ -24,7 +28,7 @@ let responseAPI
 //Affichage dinamyque du prix total de la commande
 const prixTotalPanier = document.getElementById('prixTotalPanier')
 prixTotalPanier.textContent = "Le montant total s'élève à " + prixTotal + '€'
-console.log(prixTotalPanier)
+console.log(prixTotalPanier.textContent)
 
 //Affichage Panier 
 const affichagePanier = () => {
@@ -68,15 +72,15 @@ const formulairePanier = document.getElementById('formulaire')
 formulairePanier.addEventListener('submit', e => {
     e.preventDefault()
         //Avant d'envoyer un formulaire, vérification que le panier n'est pas vide.
-    if (products == []) {
-        alert("Attention, votre panier est vide.");
+    if (products == [] || prixTotal == 0) {
+        alert("Attention, votre panier est vide.")
     } else {
         //Recuperer toutes les données saisies par le client
-        let firstName = document.getElementById('firstName').value;
-        let lastName = document.getElementById('lastName').value;
-        let email = document.getElementById('email').value;
-        let address = document.getElementById('address').value;
-        let city = document.getElementById('city').value;
+        let firstName = document.getElementById('firstName').value
+        let lastName = document.getElementById('lastName').value
+        let email = document.getElementById('email').value
+        let address = document.getElementById('address').value
+        let city = document.getElementById('city').value
 
         //Vérification du formulaire
 
