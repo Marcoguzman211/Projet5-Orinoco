@@ -1,6 +1,16 @@
 const container = document.getElementById('container_principal'); //Container principal vide dans le index HTML
 const xhr = new XMLHttpRequest(); //Variable avec la requête vers l'API
 
+//Variables pour l'affichage de la quantité dans le panier*
+const localStorageQuantity = localStorage.getItem('qte')
+let quantitePanier = JSON.parse(localStorageQuantity) || 0
+let panierQte = document.getElementById('panierQte')
+
+if (!quantitePanier) {
+    panierQte.textContent = 0;
+} else {
+    panierQte.textContent = quantitePanier
+}
 
 //Page d'accueil
 xhr.onreadystatechange = function() {

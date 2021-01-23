@@ -1,19 +1,20 @@
 {
-  "name": "projet5-orinoco",
-  "version": "1.0.0",
-  "description": "Projet 5 Parcours Developpeur Web OpenClassrooms",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Marcoguzman211/Projet5-Orinoco.git"
-  },
-  "author": "Marco Guzman",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Marcoguzman211/Projet5-Orinoco/issues"
-  },
-  "homepage": "https://github.com/Marcoguzman211/Projet5-Orinoco#readme"
+    "name": "projet5-orinoco",
+    "version": "1.0.0",
+    "description": "Projet 5 Parcours Developpeur Web OpenClassrooms",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prefix": "postcss ./css/styles.css --use autoprefixer -d ./css/prefixed/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Marcoguzman211/Projet5-Orinoco.git"
+    },
+    "author": "Marco Guzman",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Marcoguzman211/Projet5-Orinoco/issues"
+    },
+    "homepage": "https://github.com/Marcoguzman211/Projet5-Orinoco#readme"
 }

@@ -27,7 +27,7 @@ const ajax = request => {
 }
 
 
-
+//Paramètres URL
 const queryString = window.location.search
 if (queryString != "") {
     const urlParams = new URLSearchParams(queryString)
@@ -75,7 +75,6 @@ if (queryString != "") {
                     console.log(products)
                     location.reload()
                 })
-
             })
         })
     } else {

@@ -1,24 +1,22 @@
 //Verification du localStorage
 const localStorageContent = localStorage.getItem('products')
 const localStoragePrice = localStorage.getItem('totalPrice')
+const localStorageQuantity = localStorage.getItem('qte')
 let products = JSON.parse(localStorageContent) || []
 let prixTotal = JSON.parse(localStoragePrice) || 0
+let quantitePanier = JSON.parse(localStorageQuantity) || 0
 
 //Variables pour l'affichage de la quantité dans le panier
 let panierQte = document.getElementById('panierQte')
 panierQte.textContent = quantitePanier
 
-
 //On vide le panier avec un bouton
 const videPanier = document.getElementById('clearStorage')
 videPanier.addEventListener('click', () => {
-        ClearAll()
-    })
-    //Fonction pour vider le panier
-function ClearAll() {
-    localStorage.clear();
+    alert('Votre panier a été vidé.')
+    localStorage.clear()
     location.reload()
-}
+})
 
 //URL de l'API
 const url = "http://localhost:3000/api/cameras"

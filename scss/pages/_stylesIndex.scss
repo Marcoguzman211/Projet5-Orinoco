@@ -3,15 +3,33 @@
     flex-direction: column;
     background: #f3f1e9;
     border-top: 1px solid black;
+    @include mq(small) {
+        padding: 2em 2em 1em 2em;
+    }
+    @include mq(medium) {
+        padding: 2em 2em 1em 2em;
+    }
     &-titre {
         align-self: center;
         font-size: 4em;
         margin-top: .5em;
+        @include mq(small) {
+            font-size: 2em;
+        }
+        @include mq(medium) {
+            font-size: 2em;
+        }
     }
     &-p1 {
         align-self: center;
         font-size: 2em;
         padding: 1em 0 .5em 0;
+        @include mq(small) {
+            font-size: 1.5em;
+        }
+        @include mq(medium) {
+            font-size: 1.5em;
+        }
     }
     &-p2 {
         display: inline-flex;
@@ -20,6 +38,14 @@
         align-self: center;
         font-size: 1.5em;
         padding: 1.5em 0;
+        @include mq(small) {
+            font-size: 1em;
+            width: 100%;
+        }
+        @include mq(medium) {
+            font-size: 1em;
+            width: 80%;
+        }
     }
 }
 
@@ -36,6 +62,14 @@
     justify-content: space-between;
     row-gap: 1em;
     column-gap: 3em;
+    @include mq(small) {
+        grid-template-columns: repeat(1, 300px);
+        padding: 0 2em 2em 2em;
+    }
+    @include mq(medium) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
 }
 
 .card {
@@ -50,6 +84,12 @@
         border-radius: 5%;
         height: 300px;
         width: 100%;
+        @include mq(small) {
+            height: 200px;
+        }
+        @include mq(medium) {
+            height: 200px;
+        }
     }
     &__titre {
         margin-top: 1em;
