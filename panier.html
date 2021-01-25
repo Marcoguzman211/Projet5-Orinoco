@@ -26,10 +26,12 @@
     </header>
     <main class="panier">
         <div id='panier__contenu' class="panier__contenu">
-            <h2>Votre panier <span id="prixTotalPanier"></span></h2>
+            <h2 class="votrePanier">Votre panier</h2>
             <div id="panierProduitCont" class="panierProduitCont">
+                <!--Ici les éléments du LocalStorage -->
             </div>
-            <button id='clearStorage'>Vider le panier</button>
+            <span id="prixTotalPanier" class="prixTotalPanier"></span>
+            <button id='clearStorage' class="clearStorage">Vider le panier</button>
         </div>
         <div class="panier__formulaire">
             <div class="formulaireContainer">
