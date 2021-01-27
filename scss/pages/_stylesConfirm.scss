@@ -1,0 +1,77 @@
+.sectionConfirmation {
+    display: grid;
+    padding: 10em;
+    background-color: #f3f1e9;
+    border-top: 1px solid #000000;
+    @include mq(small) {
+        padding: 2em;
+    }
+    @media screen and (min-width: 431px) and (max-width: 768px) {
+        padding: 2em;
+    }
+    @media screen and (min-width: 769px) and (max-width: 1440px) {
+        padding: 4em 4em 12em 4em;
+    }
+}
+
+.text-1 {
+    font-weight: bold;
+    font-size: 3em;
+    margin-bottom: 2em;
+    @include mq(small) {
+        margin-bottom: .5em;
+        font-size: 2em;
+    }
+}
+
+.text-1error {
+    font-weight: bold;
+    font-size: 3em;
+    margin-bottom: .7em;
+    @include mq(small) {
+        margin-bottom: .5em;
+        font-size: 2em;
+    }
+}
+
+.text-2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    @include mq(small) {
+        text-align: left;
+    }
+    & span {
+        font-weight: bold;
+    }
+}
+
+.text-2error {
+    padding-bottom: 11em;
+    font-size: 2em;
+    @include mq(small) {
+        font-size: 1.6em;
+    }
+    @media screen and (min-width: 431px) and (max-width: 768px) {
+        padding-bottom: 14em;
+    }
+}
+
+.text-3 {
+    font-size: 1.5em;
+    margin-bottom: 3em;
+    @include mq(small) {
+        text-align: left;
+        margin-bottom: 1em;
+    }
+    & span {
+        font-weight: bold;
+    }
+}
+
+.text-4 {
+    font-size: 1.5em;
+    padding-bottom: 6em;
+    @include mq(small) {
+        padding-bottom: 1em;
+    }
+}

@@ -8,28 +8,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
     <header class="navbar">
-        <a href="/index.html">
+        <a href="index.html">
             <img class="navbar-img" src="img/orinoco-logo.png" alt="Logo d'Orinoco">
         </a>
         <nav class="nav-links">
             <ul>
                 <li>
-                    <a href="/panier.html"><i class="fas fa-shopping-cart"></i>Panier</a>
+                    <a href="panier.html"><i class="fas fa-shopping-cart"></i>Panier</a>
                 </li>
             </ul>
         </nav>
     </header>
     <main class="mainConfirmation">
-        <div id="sectionConfirmation">
-            <p>Bonjour <span id="nameCommande"></span>.</p><br />
-            <p>Nous vous remercions pour votre commande. Le prix de vos achats est de <span id="prixCommande"></span> euros.</p><br />
-            <p>Voici le numéro de votre commande: <span id="idCommande"></span></p><br />
-            <p>Merci de bien vouloir le conserver. Nous espérons vous revoir prochainement et vous remercions pour votre confiance.</p>
+        <div class="sectionConfirmation" id="sectionConfirmation">
+            <p class="text-1">Bonjour <span id="nameCommande"></span>,</p>
+            <p class="text-2">Nous vous remercions pour votre commande. Le prix de vos achats est de <span id="prixCommande"></span> <strong>euros.</strong></p>
+            <p class="text-3">Voici le numéro de votre commande: <span id="idCommande"></span></p>
+            <p class="text-4">Merci de bien vouloir le conserver. Nous espérons vous revoir prochainement et vous remercions pour votre confiance.</p>
         </div>
     </main>
     <footer class="footer">
@@ -38,7 +38,7 @@
         <a class="footer__item" href="#">Mentions légales</a>
         <a class="footer__item" href="mailto:contact@orinococameras.com">Contact</a>
     </footer>
-    <script src="/js/confirmation.js"></script>
+    <script src="js/confirmation.js"></script>
 </body>
 
 </html>

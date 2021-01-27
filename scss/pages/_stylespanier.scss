@@ -2,6 +2,7 @@
     display: flex;
     height: 84vh;
     position: relative;
+    background: #fbfbf8;
     @include mq(small) {
         display: grid;
         height: auto;
