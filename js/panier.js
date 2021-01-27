@@ -80,41 +80,55 @@ formulairePanier.addEventListener('submit', e => {
         let address = document.getElementById('address').value
         let city = document.getElementById('city').value
 
-        //Vérification du formulaire
+        let prenomValid = /^[a-zA-Z ,.'-]+$/,
+            nomValid = /^[a-zA-Z ,.'-]+$/,
+            emailValid = /^[a-z0-9._-]+@[a-z0-9.-]{2,}[.][a-z]{2,3}$/,
+            addressValid = /[0-9a-zA-Z]{1,3}[a-z ,.'-]+$/,
+            cityValid = /^^[a-zA-Z ,.'-]+$/
 
-        // on met les variables dans un objet pour la requete POST
-        let contact = {
-            "firstName": firstName,
-            "lastName": lastName,
-            "email": email,
-            "address": address,
-            "city": city,
-        };
 
-        // création de l'objet obligatoire pour la requete à envoyer au serveur
-        let objt = {
-            contact,
-            products
-        };
+        if (prenomValid.test(firstName) == true && nomValid.test(lastName) == true && emailValid.test(email) == true && addressValid.test(address) == true && cityValid.test(city) == true) {
+            // on met les variables dans un objet pour la requete POST
+            let contact = {
+                "firstName": firstName,
+                "lastName": lastName,
+                "email": email,
+                "address": address,
+                "city": city,
+            };
 
-        let achat = JSON.stringify(objt);
-        console.log(achat)
+            // création de l'objet obligatoire pour la requete à envoyer au serveur
+            let objt = {
+                contact,
+                products
+            };
 
-        //Envoi des données récupérées
-        const optionsFetch = {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            method: "POST",
-            body: JSON.stringify(objt),
+            let achat = JSON.stringify(objt);
+            console.log(achat)
+
+            //Envoi des données récupérées
+            const optionsFetch = {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                method: "POST",
+                body: JSON.stringify(objt),
+            }
+
+            fetch(urlOrder, optionsFetch).then(response => {
+                response.json().then(data => {
+                    responseAPI = data
+                    window.location = `./confirmation.html?id=${responseAPI.orderId}&name=${firstName}&prix=${prixTotal}`
+                });
+            });
+            localStorage.clear()
+            let commandePassee = 1
+            localStorage.setItem('commande', JSON.stringify(commandePassee))
+
+        } else {
+            alert('Merci de vérifier que le formulaire est bien rempli')
         }
 
-        fetch(urlOrder, optionsFetch).then(response => {
-            response.json().then(data => {
-                responseAPI = data
-                window.location = `./confirmation.html?id=${responseAPI.orderId}&name=${firstName}&prix=${prixTotal}`
-            });
-        });
-        localStorage.clear()
+
     }
 })

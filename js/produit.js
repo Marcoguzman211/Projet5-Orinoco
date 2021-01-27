@@ -14,19 +14,6 @@ panierQte.textContent = quantitePanier
 const url = "http://localhost:3000/api/cameras"
 let responseAPI
 
-//Création librairie AJAX pour la requête du produit dans l'API
-const ajax = request => {
-    return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest()
-        xhr.open(request.method, request.url, true)
-        xhr.addEventListener('load', e => {
-            resolve(e.target)
-        })
-        xhr.send()
-    })
-}
-
-
 //Paramètres URL
 const queryString = window.location.search
 if (queryString != "") {
@@ -37,7 +24,7 @@ if (queryString != "") {
         fetch(url + '/' + id).then(response => {
             response.json().then(data => {
                 responseAPI = data
-                    //console.log(responseAPI)
+                console.log(responseAPI)
 
                 //On remplit le html avec les réponses de l'API
                 const produitImg = document.getElementById("produitImg"),

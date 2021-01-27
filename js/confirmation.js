@@ -11,8 +11,13 @@ if (paramsConfirmation.has('id') == false) {
     document.getElementById('sectionConfirmation').innerHTML = "<p> Votre commande n'est pas validée </p> <br> <p>Vous allez être redigé vers votre panier </p>"
     setTimeout(() => {
         window.location.href = "panier.html"
-    }, 3000)
+    }, 2500)
 
+} else if (paramsConfirmation.has('id') == true && !localStorage.commande) {
+    document.getElementById('sectionConfirmation').innerHTML = "<p> Votre commande n'est pas validée </p> <br> <p>Vous allez être redigé vers votre panier </p>"
+    setTimeout(() => {
+        window.location.href = "panier.html"
+    }, 2500)
 } else {
     let nameConfirmation = document.getElementById("nameCommande")
     let prixConfirmation = document.getElementById("prixCommande")
@@ -21,4 +26,6 @@ if (paramsConfirmation.has('id') == false) {
     nameConfirmation.textContent = paramsConfirmation.get('name')
     prixConfirmation.textContent = paramsConfirmation.get('prix')
     idConfirmation.textContent = paramsConfirmation.get('id')
+    localStorage.clear()
+    console.log(window.location.origin)
 }

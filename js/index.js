@@ -5,6 +5,7 @@ const xhr = new XMLHttpRequest(); //Variable avec la requête vers l'API
 const localStorageQuantity = localStorage.getItem('qte')
 let quantitePanier = JSON.parse(localStorageQuantity) || 0
 let panierQte = document.getElementById('panierQte')
+console.log(localStorage)
 
 if (!quantitePanier) {
     panierQte.textContent = 0;
@@ -21,6 +22,8 @@ xhr.onreadystatechange = function() {
             console.log(data)
             draw(data)
         })
+    } else if (this.readyState == 4 && this.status == 0) {
+        alert("Le serveur est incapable de se connecter.")
     }
 }
 
@@ -67,5 +70,6 @@ const draw = data => {
 
         //Montrer tous les produits à l'écran
         container.appendChild(pCardContainer)
+        console.log(product.name)
     });
 }
