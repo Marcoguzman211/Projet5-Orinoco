@@ -21,7 +21,7 @@ videPanier.addEventListener('click', () => {
 //URL de l'API
 const url = "http://localhost:3000/api/cameras"
 const urlOrder = "http://localhost:3000/api/cameras/order"
-let responseAPI
+let responseAPI //Variable pour stocker la réponse de l'API
 
 //Affichage dinamyque du prix total de la commande
 const prixTotalPanier = document.getElementById('prixTotalPanier')
@@ -63,7 +63,7 @@ const affichagePanier = () => {
     })
 }
 
-affichagePanier()
+affichagePanier() //On appelle la fonction
 
 //Alerte si le panier est vide 
 const formulairePanier = document.getElementById('formulaire')
@@ -80,6 +80,7 @@ formulairePanier.addEventListener('submit', e => {
         let address = document.getElementById('address').value
         let city = document.getElementById('city').value
 
+        //Vérification du remplissage du formulaire
         let prenomValid = /^[a-zA-Z ,.'-]+$/,
             nomValid = /^[a-zA-Z ,.'-]+$/,
             emailValid = /^[a-z0-9._-]+@[a-z0-9.-]{2,}[.][a-z]{2,3}$/,
@@ -118,11 +119,11 @@ formulairePanier.addEventListener('submit', e => {
             fetch(urlOrder, optionsFetch).then(response => {
                 response.json().then(data => {
                     responseAPI = data
-                    window.location = `./confirmation.html?id=${responseAPI.orderId}&name=${firstName}&prix=${prixTotal}`
+                    window.location = `./confirmation.html?id=${responseAPI.orderId}&name=${firstName}&prix=${prixTotal}` //On renvoie vers la page confirmation avec les infos
                 });
             });
             localStorage.clear()
-            let commandePassee = 1
+            let commandePassee = 1 //Pour la sécurité on ajoute quelque chose au panier au moment de la commande
             localStorage.setItem('commande', JSON.stringify(commandePassee))
 
         } else {

@@ -1,5 +1,5 @@
 const container = document.getElementById('container_principal'); //Container principal vide dans le index HTML
-const xhr = new XMLHttpRequest(); //Variable avec la requête vers l'API
+const xhr = new XMLHttpRequest(); //Variable pour la requête vers l'API
 
 //Variables pour l'affichage de la quantité dans le panier*
 const localStorageQuantity = localStorage.getItem('qte')
@@ -7,6 +7,7 @@ let quantitePanier = JSON.parse(localStorageQuantity) || 0
 let panierQte = document.getElementById('panierQte')
 console.log(localStorage)
 
+//Affichage de la quantité dans le bouton panier
 if (!quantitePanier) {
     panierQte.textContent = 0;
 } else {
@@ -16,14 +17,15 @@ if (!quantitePanier) {
 //Page d'accueil
 xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        //Quoi faire avec la data
+        //Récuperer la data
         xhr.addEventListener('load', e => {
             const data = JSON.parse(e.target.responseText)
             console.log(data)
             draw(data)
         })
     } else if (this.readyState == 4 && this.status == 0) {
-        alert("Le serveur est incapable de se connecter.")
+        //On annonce que le serveur n'est pas disponible
+        alert("Problème ave le serveur. Veuillez réessayer plus tard. ")
     }
 }
 

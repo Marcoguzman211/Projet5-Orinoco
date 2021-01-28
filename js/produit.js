@@ -15,12 +15,15 @@ const url = "http://localhost:3000/api/cameras"
 let responseAPI
 
 //Paramètres URL
+
+//Récuperer l'id du produit choisi dans la page d'accueil
 const queryString = window.location.search
 if (queryString != "") {
     const urlParams = new URLSearchParams(queryString)
-    const id = urlParams.get("id")
+    const id = urlParams.get("id") //On récupère l'id pour travailler avec
     if (id != "") {
         console.log(id)
+            //On fetch l'API avec l'identifiant
         fetch(url + '/' + id).then(response => {
             response.json().then(data => {
                 responseAPI = data
@@ -65,6 +68,7 @@ if (queryString != "") {
             })
         })
     } else {
+        //Sinon, on renvoie vers la page d'accueil
         window.location.href = "index.html"
     }
 } else {
