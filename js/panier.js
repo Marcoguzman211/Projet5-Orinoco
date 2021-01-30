@@ -15,6 +15,7 @@ const videPanier = document.getElementById('clearStorage')
 videPanier.addEventListener('click', () => {
     alert('Votre panier a été vidé.')
     localStorage.clear()
+    console.log('Panier vidé')
     location.reload()
 })
 
@@ -120,8 +121,8 @@ formulairePanier.addEventListener('submit', e => {
                 response.json().then(data => {
                     responseAPI = data
                     window.location = `./confirmation.html?id=${responseAPI.orderId}&name=${firstName}&prix=${prixTotal}` //On renvoie vers la page confirmation avec les infos
-                });
-            });
+                })
+            })
             localStorage.clear()
             let commandePassee = 1 //Pour la sécurité on ajoute quelque chose au panier au moment de la commande
             localStorage.setItem('commande', JSON.stringify(commandePassee))
