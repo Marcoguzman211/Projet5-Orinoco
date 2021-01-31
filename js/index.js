@@ -25,7 +25,7 @@ xhr.onreadystatechange = function() {
         })
     } else if (this.readyState == 4 && this.status == 0) {
         //On annonce que le serveur n'est pas disponible
-        alert("Problème ave le serveur. Veuillez réessayer plus tard. ")
+        alert("Problème avec le serveur. Veuillez réessayer plus tard. ")
     }
 }
 
