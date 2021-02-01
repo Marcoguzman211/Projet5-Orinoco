@@ -82,8 +82,8 @@ formulairePanier.addEventListener('submit', e => {
         let city = document.getElementById('city').value
 
         //Vérification du remplissage du formulaire
-        let prenomValid = /^[a-zA-Z ,.'-]+$/,
-            nomValid = /^[a-zA-Z ,.'-]+$/,
+        let prenomValid = /^[a-zA-Zéèëïê,.'-]+$/,
+            nomValid = /^[a-zA-Zéèëïê,.'-]+$/,
             emailValid = /^[a-z0-9._-]+@[a-z0-9.-]{2,}[.][a-z]{2,3}$/,
             addressValid = /[0-9a-zA-Z]{1,3}[a-z ,.'-]+$/,
             cityValid = /^^[a-zA-Z ,.'-]+$/
